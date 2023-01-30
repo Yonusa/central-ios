@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6539E57E298768F200F36FD0 /* ZonasCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6539E57C298768F200F36FD0 /* ZonasCollectionViewCell.swift */; };
+		6539E57F298768F200F36FD0 /* ZonasCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6539E57D298768F200F36FD0 /* ZonasCollectionViewCell.xib */; };
 		6589B2BE297352F600A9317D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589B2BD297352F600A9317D /* AppDelegate.swift */; };
 		6589B2C0297352F600A9317D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589B2BF297352F600A9317D /* SceneDelegate.swift */; };
 		6589B2C2297352F600A9317D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589B2C1297352F600A9317D /* ViewController.swift */; };
@@ -28,6 +30,7 @@
 		6589B30529736B9E00A9317D /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 6589B30429736B9E00A9317D /* Lottie */; };
 		6589B307297372ED00A9317D /* loginAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 6589B306297372ED00A9317D /* loginAnimation.json */; };
 		6589B30A29737D9400A9317D /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589B30929737D9400A9317D /* Log.swift */; };
+		6589B30C2974B7BB00A9317D /* CentralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589B30B2974B7BB00A9317D /* CentralViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6539E57C298768F200F36FD0 /* ZonasCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZonasCollectionViewCell.swift; sourceTree = "<group>"; };
+		6539E57D298768F200F36FD0 /* ZonasCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZonasCollectionViewCell.xib; sourceTree = "<group>"; };
 		6589B2BA297352F600A9317D /* Central.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Central.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6589B2BD297352F600A9317D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6589B2BF297352F600A9317D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +73,7 @@
 		6589B3012973605800A9317D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6589B306297372ED00A9317D /* loginAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loginAnimation.json; sourceTree = "<group>"; };
 		6589B30929737D9400A9317D /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		6589B30B2974B7BB00A9317D /* CentralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,9 +129,9 @@
 		6589B2BC297352F600A9317D /* Central */ = {
 			isa = PBXGroup;
 			children = (
-				6589B30829737D0000A9317D /* New Group */,
 				6589B2F929735C4F00A9317D /* Helpers */,
 				6589B2ED29735AE000A9317D /* Authenthication */,
+				6589B30829737D0000A9317D /* Central */,
 				6589B2BD297352F600A9317D /* AppDelegate.swift */,
 				6589B2BF297352F600A9317D /* SceneDelegate.swift */,
 				6589B2C1297352F600A9317D /* ViewController.swift */,
@@ -175,11 +181,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		6589B30829737D0000A9317D /* New Group */ = {
+		6589B30829737D0000A9317D /* Central */ = {
 			isa = PBXGroup;
 			children = (
+				6589B30B2974B7BB00A9317D /* CentralViewController.swift */,
+				6539E57C298768F200F36FD0 /* ZonasCollectionViewCell.swift */,
+				6539E57D298768F200F36FD0 /* ZonasCollectionViewCell.xib */,
 			);
-			path = "New Group";
+			path = Central;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +311,7 @@
 				6589B3022973605800A9317D /* GoogleService-Info.plist in Resources */,
 				6589B307297372ED00A9317D /* loginAnimation.json in Resources */,
 				6589B2C7297352F700A9317D /* Assets.xcassets in Resources */,
+				6539E57F298768F200F36FD0 /* ZonasCollectionViewCell.xib in Resources */,
 				6589B2C5297352F600A9317D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,11 +361,13 @@
 			files = (
 				6589B2EF29735AF100A9317D /* LoginViewController.swift in Sources */,
 				6589B2C2297352F600A9317D /* ViewController.swift in Sources */,
+				6539E57E298768F200F36FD0 /* ZonasCollectionViewCell.swift in Sources */,
 				6589B2BE297352F600A9317D /* AppDelegate.swift in Sources */,
 				6589B2C0297352F600A9317D /* SceneDelegate.swift in Sources */,
 				6589B2FD29735C8F00A9317D /* Alerts.swift in Sources */,
 				6589B2FB29735C6300A9317D /* Spinner.swift in Sources */,
 				6589B30A29737D9400A9317D /* Log.swift in Sources */,
+				6589B30C2974B7BB00A9317D /* CentralViewController.swift in Sources */,
 				6589B2FF29735DAA00A9317D /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

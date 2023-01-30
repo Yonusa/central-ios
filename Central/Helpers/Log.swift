@@ -11,7 +11,9 @@ import FirebaseCrashlytics
 class Log {
     static let shared: Log = Log()
     
-    func on(name className: String) {
-        Crashlytics.crashlytics().setCustomValue(className, forKey: "Controller")
+    private var crashlytics = Crashlytics.crashlytics()
+    
+    func on(file: String) {
+        crashlytics.setCustomValue(file, forKey: "Current file")
     }
 }

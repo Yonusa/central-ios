@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Firebase
 import Lottie
 
 class LoginViewController: UIViewController {
@@ -78,7 +77,7 @@ class LoginViewController: UIViewController {
     
     private lazy var buttonLogin: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .init(named: "BtnPrimary")
+        button.backgroundColor = .init(named: "Primary")
         button.layer.cornerRadius = 20.0
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOffset = CGSize(width: 0.0, height: 6.0)
@@ -113,14 +112,18 @@ class LoginViewController: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        let className = NSStringFromClass(LoginViewController.classForCoder())
-        Log.shared.on(name: className)
+        Log.shared.on(file: #file)
 //
 //        loginViewModel.delegate = self
         setupToHideKeyboardOnTapOnView()
         configureUI()
         checkPreviousLogin()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     // MARK: - Helpers
@@ -178,6 +181,9 @@ class LoginViewController: UIViewController {
         spinner.showSpinner(onView: self.view)
         
 //        loginViewModel.attemptToLogin(email: email, password: password)
+        
+        let centralViewController = CentralViewController()
+        self.navigationController?.pushViewController(centralViewController, animated: true)
     }
     
 //    @objc private func passRecovery() {
