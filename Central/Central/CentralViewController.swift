@@ -68,11 +68,13 @@ class CentralViewController: UIViewController {
         self.navigationController?.popToRootViewController(animated: true)
     }
     @objc private func addUser() {
-        
+        let addUserView = ListUserViewController(nibName: "ListUserViewController", bundle: nil)
+        self.navigationController?.pushViewController(addUserView, animated: true)
     }
     
 }
 
+// MARK: - CollectionViewDelegate
 extension CentralViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count

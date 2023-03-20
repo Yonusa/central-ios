@@ -31,6 +31,12 @@
 		6589B307297372ED00A9317D /* loginAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 6589B306297372ED00A9317D /* loginAnimation.json */; };
 		6589B30A29737D9400A9317D /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589B30929737D9400A9317D /* Log.swift */; };
 		6589B30C2974B7BB00A9317D /* CentralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589B30B2974B7BB00A9317D /* CentralViewController.swift */; };
+		65B2D18D29C83D8700695962 /* ListUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B2D18B29C83D8700695962 /* ListUserViewController.swift */; };
+		65B2D18E29C83D8700695962 /* ListUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65B2D18C29C83D8700695962 /* ListUserViewController.xib */; };
+		65B2D19129C83E4C00695962 /* ListUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B2D18F29C83E4C00695962 /* ListUserTableViewCell.swift */; };
+		65B2D19229C83E4C00695962 /* ListUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65B2D19029C83E4C00695962 /* ListUserTableViewCell.xib */; };
+		65B2D19729C83E9300695962 /* AddUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B2D19529C83E9300695962 /* AddUserViewController.swift */; };
+		65B2D19829C83E9300695962 /* AddUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65B2D19629C83E9300695962 /* AddUserViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +80,12 @@
 		6589B306297372ED00A9317D /* loginAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loginAnimation.json; sourceTree = "<group>"; };
 		6589B30929737D9400A9317D /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		6589B30B2974B7BB00A9317D /* CentralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralViewController.swift; sourceTree = "<group>"; };
+		65B2D18B29C83D8700695962 /* ListUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUserViewController.swift; sourceTree = "<group>"; };
+		65B2D18C29C83D8700695962 /* ListUserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListUserViewController.xib; sourceTree = "<group>"; };
+		65B2D18F29C83E4C00695962 /* ListUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUserTableViewCell.swift; sourceTree = "<group>"; };
+		65B2D19029C83E4C00695962 /* ListUserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListUserTableViewCell.xib; sourceTree = "<group>"; };
+		65B2D19529C83E9300695962 /* AddUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserViewController.swift; sourceTree = "<group>"; };
+		65B2D19629C83E9300695962 /* AddUserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddUserViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,11 +196,25 @@
 		6589B30829737D0000A9317D /* Central */ = {
 			isa = PBXGroup;
 			children = (
+				65B2D18229C8364500695962 /* Add User */,
 				6589B30B2974B7BB00A9317D /* CentralViewController.swift */,
 				6539E57C298768F200F36FD0 /* ZonasCollectionViewCell.swift */,
 				6539E57D298768F200F36FD0 /* ZonasCollectionViewCell.xib */,
 			);
 			path = Central;
+			sourceTree = "<group>";
+		};
+		65B2D18229C8364500695962 /* Add User */ = {
+			isa = PBXGroup;
+			children = (
+				65B2D18B29C83D8700695962 /* ListUserViewController.swift */,
+				65B2D18C29C83D8700695962 /* ListUserViewController.xib */,
+				65B2D18F29C83E4C00695962 /* ListUserTableViewCell.swift */,
+				65B2D19029C83E4C00695962 /* ListUserTableViewCell.xib */,
+				65B2D19529C83E9300695962 /* AddUserViewController.swift */,
+				65B2D19629C83E9300695962 /* AddUserViewController.xib */,
+			);
+			path = "Add User";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,8 +335,11 @@
 			files = (
 				6589B2CA297352F700A9317D /* LaunchScreen.storyboard in Resources */,
 				6589B3022973605800A9317D /* GoogleService-Info.plist in Resources */,
+				65B2D19829C83E9300695962 /* AddUserViewController.xib in Resources */,
 				6589B307297372ED00A9317D /* loginAnimation.json in Resources */,
 				6589B2C7297352F700A9317D /* Assets.xcassets in Resources */,
+				65B2D19229C83E4C00695962 /* ListUserTableViewCell.xib in Resources */,
+				65B2D18E29C83D8700695962 /* ListUserViewController.xib in Resources */,
 				6539E57F298768F200F36FD0 /* ZonasCollectionViewCell.xib in Resources */,
 				6589B2C5297352F600A9317D /* Main.storyboard in Resources */,
 			);
@@ -362,11 +391,14 @@
 				6589B2EF29735AF100A9317D /* LoginViewController.swift in Sources */,
 				6589B2C2297352F600A9317D /* ViewController.swift in Sources */,
 				6539E57E298768F200F36FD0 /* ZonasCollectionViewCell.swift in Sources */,
+				65B2D19129C83E4C00695962 /* ListUserTableViewCell.swift in Sources */,
 				6589B2BE297352F600A9317D /* AppDelegate.swift in Sources */,
 				6589B2C0297352F600A9317D /* SceneDelegate.swift in Sources */,
 				6589B2FD29735C8F00A9317D /* Alerts.swift in Sources */,
+				65B2D19729C83E9300695962 /* AddUserViewController.swift in Sources */,
 				6589B2FB29735C6300A9317D /* Spinner.swift in Sources */,
 				6589B30A29737D9400A9317D /* Log.swift in Sources */,
+				65B2D18D29C83D8700695962 /* ListUserViewController.swift in Sources */,
 				6589B30C2974B7BB00A9317D /* CentralViewController.swift in Sources */,
 				6589B2FF29735DAA00A9317D /* Extensions.swift in Sources */,
 			);

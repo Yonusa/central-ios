@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="95" id="KGk-i7-Jjw" customClass="ListUserTableViewCell" customModule="Central" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="95"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="95"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="0bG-BH-IYU">
+                        <rect key="frame" x="0.0" y="10" width="414" height="75"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0mN-Zr-beA">
+                                <rect key="frame" x="0.0" y="-2" width="55" height="79"/>
+                                <color key="tintColor" name="Third"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="ZzT-Sa-AiA"/>
+                                </constraints>
+                                <imageReference key="image" image="person.and.background.dotted" catalog="system" symbolScale="large"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="yqN-tR-uFs">
+                                <rect key="frame" x="75" y="10" width="284" height="55"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Usuario" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nrd-GM-7N4">
+                                        <rect key="frame" x="112.66666666666667" y="0.0" width="58.666666666666671" height="22.666666666666668"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="last connection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0QH-Ui-mAb">
+                                        <rect key="frame" x="84" y="32.666666666666664" width="116.33333333333331" height="22.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemGray2Color"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3MR-PX-6ev">
+                                <rect key="frame" x="379" y="17.333333333333329" width="35" height="41"/>
+                                <color key="tintColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="mx7-ZZ-Zqm"/>
+                                </constraints>
+                                <imageReference key="image" image="gearshape.fill" catalog="system" symbolScale="large"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="75" id="0vC-2e-3aU"/>
+                            <constraint firstAttribute="bottom" secondItem="yqN-tR-uFs" secondAttribute="bottom" constant="10" id="4m6-Xi-7D0"/>
+                            <constraint firstItem="3MR-PX-6ev" firstAttribute="top" secondItem="0bG-BH-IYU" secondAttribute="top" constant="20" id="AFn-n7-pmi"/>
+                            <constraint firstItem="0mN-Zr-beA" firstAttribute="top" secondItem="0bG-BH-IYU" secondAttribute="top" id="Fpe-yD-b8h"/>
+                            <constraint firstItem="yqN-tR-uFs" firstAttribute="top" secondItem="0bG-BH-IYU" secondAttribute="top" constant="10" id="HLp-0q-3vr"/>
+                            <constraint firstAttribute="bottom" secondItem="3MR-PX-6ev" secondAttribute="bottom" constant="20" id="RcJ-7W-5fy"/>
+                            <constraint firstAttribute="bottom" secondItem="0mN-Zr-beA" secondAttribute="bottom" id="hmF-tN-gyD"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <color key="backgroundColor" name="Background"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="0bG-BH-IYU" secondAttribute="trailing" id="RDa-7M-3pC"/>
+                    <constraint firstItem="0bG-BH-IYU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="RGy-5d-Z0t"/>
+                    <constraint firstItem="0bG-BH-IYU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="p0M-sw-2lY"/>
+                    <constraint firstAttribute="bottom" secondItem="0bG-BH-IYU" secondAttribute="bottom" constant="10" id="xNI-KX-adL"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="stackView" destination="0bG-BH-IYU" id="PUl-FX-9To"/>
+            </connections>
+            <point key="canvasLocation" x="50.381679389312978" y="36.971830985915496"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="gearshape.fill" catalog="system" width="128" height="123"/>
+        <image name="person.and.background.dotted" catalog="system" width="128" height="94"/>
+        <namedColor name="AccentColor">
+            <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Background">
+            <color red="0.8784313725490196" green="0.94901960784313721" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Third">
+            <color red="0.58039215686274515" green="0.90588235294117647" blue="0.011764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
