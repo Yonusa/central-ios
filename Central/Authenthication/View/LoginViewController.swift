@@ -11,7 +11,7 @@ import Lottie
 class LoginViewController: UIViewController {
     
     // MARK: - Vars
-    //var loginViewModel = LoginViewModel()
+    var loginViewModel = LoginViewModel()
     var spinner = Spinner()
     
     // MARK: - Outlets
@@ -29,12 +29,6 @@ class LoginViewController: UIViewController {
         animationView.play()
         return animationView
     }()
-    
-//    private let imageLogin: UIImageView = {
-//        let imageView = UIImageView(image: UIImage(named: "loginImage"))
-//        imageView.contentMode = .scaleAspectFit
-//        return imageView
-//    }()
     
     private let labelLogin: UILabel = {
         let label = UILabel()
@@ -57,7 +51,7 @@ class LoginViewController: UIViewController {
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
         textField.backgroundColor = .white
-        // textField.text = "yonusappios2@gmail.com"
+         textField.text = "admin@gmail.com"
         return textField
     }()
     
@@ -71,7 +65,7 @@ class LoginViewController: UIViewController {
         textField.layer.borderWidth = 1.0
         textField.isSecureTextEntry = true
         textField.backgroundColor = .white
-        // textField.text = "Qwertyuiop0"
+         textField.text = "admin"
         return textField
     }()
     
@@ -88,35 +82,14 @@ class LoginViewController: UIViewController {
         return button
     }()
     
-//    private lazy var buttonPassRecovery: UIButton = {
-//        let button = UIButton()
-//        button.backgroundColor = .clear
-//        var attrs = [
-//            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15.0),
-//            NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.1843137255, green: 0.1803921569, blue: 0.2549019608, alpha: 1),
-//            NSAttributedString.Key.underlineStyle: 1] as [NSAttributedString.Key: Any]
-//        let buttonTitleStr = NSMutableAttributedString(string: "Recuperar Contraseña", attributes: attrs)
-//        button.setAttributedTitle(buttonTitleStr, for: .normal)
-//        button.addTarget(self, action: #selector(passRecovery), for: .touchUpInside)
-//        return button
-//    }()
-//
-//    private lazy var buttonCreateAccount: UIButton = {
-//        let button = UIButton()
-//        button.backgroundColor = .init(named: "BtnSec")
-//        button.layer.cornerRadius = 20.0
-//        button.setTitle("Crear Cuenta", for: .normal)
-//        button.addTarget(self, action: #selector(createAccount), for: .touchUpInside)
-//        return button
-//    }()
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         Log.shared.on(file: #file)
-//
-//        loginViewModel.delegate = self
+        
         setupToHideKeyboardOnTapOnView()
         configureUI()
+        configureValues()
         checkPreviousLogin()
         
     }
@@ -124,6 +97,7 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.navigationController?.navigationBar.tintColor = .white
     }
     
     // MARK: - Helpers
@@ -161,9 +135,13 @@ class LoginViewController: UIViewController {
         
     }
     
+    private func configureValues() {
+        loginViewModel.delegate = self
+    }
+    
     func checkPreviousLogin() {
-//        spinner.showSpinner(onView: self.view)
-//        loginViewModel.autologin()
+        spinner.showSpinner(onView: self.view)
+        loginViewModel.autoLogin()
     }
     
     // MARK: - Selectors
@@ -180,66 +158,29 @@ class LoginViewController: UIViewController {
         
         spinner.showSpinner(onView: self.view)
         
-//        loginViewModel.attemptToLogin(email: email, password: password)
+        // Attempt to Login
+        loginViewModel.login(email: email, password: password)
         
-        let centralViewController = CentralViewController()
-        self.navigationController?.pushViewController(centralViewController, animated: true)
     }
-    
-//    @objc private func passRecovery() {
-////        let newVC = RecoverPasswordVC(nibName: "RecoverPasswordVC", bundle: nil)
-//        self.navigationController?.pushViewController(newVC, animated: true)
-//    }
-//
-//    @objc private func createAccount() {
-////        let newVC = CreateAccountVC(nibName: "CreateAccountVC", bundle: nil)
-//        self.navigationController?.pushViewController(newVC, animated: true)
-//    }
     
 }
 
-//// MARK: - LoginViewModel Delegate
-//extension LoginViewController: LoginViewModelDelegate {
-//    func notAnInstaller() {
-//        self.spinner.removeSpinner()
-//        let newVC = AlertVC(nibName: "AlertVC", bundle: nil)
-//        newVC.titleAlert = "Atención"
-//        // swiftlint:disable line_length
-//        newVC.message = "Está cuenta se actualizará y se convertirá en una cuenta de instalador\rAl continuar con este proceso tu cuenta quedará registrada como instalador. Ya no podrás acceder a Yonusa 2.0 ni 3.0"
-//        newVC.cancelButtonIsHidden = false
-//        newVC.buttonTitle = "Actualizar"
-//        newVC.actionForOK = {
-//            self.spinner.showSpinner(onView: self.view)
-//            self.loginViewModel.updateAccount()
-//        }
-//        newVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-//        newVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-//        self.present(newVC, animated: true)
-//    }
-//
-//    func loginSuccess() {
-//        self.spinner.removeSpinner()
-//        let newVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
-//        self.navigationController?.pushViewController(newVC, animated: true)
-//    }
-//
-//    func loginAccountNotActive(model: LoginModel) {
-//        self.spinner.removeSpinner()
-//        Alerts.actionAlert(controller: self, title: "Atención", message: model.mensaje, titleAction: "Activar") { _ in
-//            let newVC = ActivateAccountVC(nibName: "ActivateAccountVC", bundle: nil)
-//            newVC.email = model.email
-//            newVC.userId = model.usuarioID
-//            newVC.phone = model.telefono
-//            self.navigationController?.pushViewController(newVC, animated: true)
-//        }
-//
-//    }
-//
-//    func loginFailed(message: String) {
-//        self.spinner.removeSpinner()
-//        if !message.isEmpty {
-//            Alerts.simpleAlert(controller: self, title: "Error", message: message)
-//        }
-//    }
-//
-//}
+// MARK: - LoginViewModel Delegate
+extension LoginViewController: LoginViewModelDelegate {
+    func removeSpinner() {
+        self.spinner.removeSpinner()
+    }
+    
+    func loginError(errorDescription: String) {
+        self.spinner.removeSpinner()
+        Alerts.simpleAlert(controller: self, title: "Error", message: errorDescription)
+    }
+
+    func loginSuccess() {
+        self.spinner.removeSpinner()
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        let nodesViewController = NodesViewController()
+        self.navigationController?.pushViewController(nodesViewController, animated: true)
+    }
+
+}

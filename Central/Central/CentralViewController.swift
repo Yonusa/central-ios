@@ -22,18 +22,12 @@ class CentralViewController: UIViewController {
         configureUI()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-    
     // MARK: - Helpers
     private func configureUI() {
         self.view.backgroundColor = .systemGray6
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.backgroundColor = UIColor(named: "Primary")
-        self.navigationItem.title = "Central de Monitoreo"
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "figure.walk.arrival"), style: .plain, target: self, action: #selector(logOut))
+        self.navigationItem.title = "Zonas"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.badge.plus"), style: .done, target: self, action: #selector(addUser))
         self.navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "Third")
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "Third")
@@ -64,9 +58,6 @@ class CentralViewController: UIViewController {
     }
                                                                 
     // MARK: - Actions
-    @objc private func logOut() {
-        self.navigationController?.popToRootViewController(animated: true)
-    }
     @objc private func addUser() {
         let addUserView = ListUserViewController(nibName: "ListUserViewController", bundle: nil)
         self.navigationController?.pushViewController(addUserView, animated: true)
