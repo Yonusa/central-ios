@@ -13,12 +13,14 @@ enum DefaultKeys: String {
     case userData = "USER_DATA"
 }
 
+// MARK: - LoginViewModelDelegate
 protocol LoginViewModelDelegate {
     func loginSuccess()
-    func loginError(errorDescription: String)
+    func showError(errorDescription: String)
     func removeSpinner()
 }
 
+// MARK: - LoginViewModel
 class LoginViewModel {
     var email: String = ""
     var password: String = ""
@@ -37,6 +39,8 @@ class LoginViewModel {
         requestLogin()
     }
     
+    // MARK: - Request
+    
     private func requestLogin() {
         if email.isEmpty || password.isEmpty {
             self.delegate?.removeSpinner()
@@ -52,14 +56,16 @@ class LoginViewModel {
                     self.saveUserData(model: model)
                     self.delegate?.loginSuccess()
                 } else {
-                    self.delegate?.loginError(errorDescription: model.message)
+                    self.delegate?.showError(errorDescription: model.message)
                 }
                 
             case .failure(let error):
-                self.delegate?.loginError(errorDescription: error.localizedDescription)
+                self.delegate?.showError(errorDescription: error.localizedDescription)
             }
         }
     }
+    
+    // MARK: - UserData
     
     private func saveUserData(model: Authenthication) {
         do {
@@ -81,7 +87,7 @@ class LoginViewModel {
         self.password = password
     }
     
-    private func getUserData() -> Authenthication? {
+    public static func getUserData() -> Authenthication? {
         
         guard let data = UserDefaults.standard.data(forKey: DefaultKeys.userData.rawValue) else {
             return nil
@@ -97,4 +103,12 @@ class LoginViewModel {
         }
     }
     
+}
+
+extension LoginViewModel {
+    static func logOut() {
+        if let bundleID = Bundle.main.bundleIdentifier {
+            UserDefaults.standard.removePersistentDomain(forName: bundleID)
+        }
+    }
 }

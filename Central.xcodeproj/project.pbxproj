@@ -45,6 +45,8 @@
 		65CDC51129CF979B00879017 /* Authenthication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDC51029CF979B00879017 /* Authenthication.swift */; };
 		65CDC51329CF97A700879017 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDC51229CF97A700879017 /* LoginViewModel.swift */; };
 		65CDC51529CF9CAB00879017 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDC51429CF9CAB00879017 /* Constants.swift */; };
+		65CDC51B29D1057100879017 /* Nodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDC51A29D1057100879017 /* Nodes.swift */; };
+		65CDC51D29D105F200879017 /* NodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDC51C29D105F200879017 /* NodeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +105,8 @@
 		65CDC51229CF97A700879017 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		65CDC51429CF9CAB00879017 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		65CDC51629CFA85C00879017 /* Central.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Central.entitlements; sourceTree = "<group>"; };
+		65CDC51A29D1057100879017 /* Nodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nodes.swift; sourceTree = "<group>"; };
+		65CDC51C29D105F200879017 /* NodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,10 +246,9 @@
 		65CDC50029CE731B00879017 /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
-				65CDC50129CE734100879017 /* NodesViewController.swift */,
-				65CDC50229CE734100879017 /* NodesViewController.xib */,
-				65CDC50529CE76D000879017 /* NodeTableViewCell.swift */,
-				65CDC50629CE76D000879017 /* NodeTableViewCell.xib */,
+				65CDC51929D1056000879017 /* Model */,
+				65CDC51829D1055B00879017 /* View */,
+				65CDC51729D1055100879017 /* ViewModel */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -287,6 +290,33 @@
 			isa = PBXGroup;
 			children = (
 				65CDC51029CF979B00879017 /* Authenthication.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		65CDC51729D1055100879017 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				65CDC51C29D105F200879017 /* NodeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		65CDC51829D1055B00879017 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				65CDC50129CE734100879017 /* NodesViewController.swift */,
+				65CDC50229CE734100879017 /* NodesViewController.xib */,
+				65CDC50529CE76D000879017 /* NodeTableViewCell.swift */,
+				65CDC50629CE76D000879017 /* NodeTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		65CDC51929D1056000879017 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				65CDC51A29D1057100879017 /* Nodes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -476,9 +506,11 @@
 				65CDC51329CF97A700879017 /* LoginViewModel.swift in Sources */,
 				6589B2FD29735C8F00A9317D /* Alerts.swift in Sources */,
 				65B2D19729C83E9300695962 /* AddUserViewController.swift in Sources */,
+				65CDC51D29D105F200879017 /* NodeViewModel.swift in Sources */,
 				6589B2FB29735C6300A9317D /* Spinner.swift in Sources */,
 				6589B30A29737D9400A9317D /* Log.swift in Sources */,
 				65CDC50729CE76D000879017 /* NodeTableViewCell.swift in Sources */,
+				65CDC51B29D1057100879017 /* Nodes.swift in Sources */,
 				65B2D18D29C83D8700695962 /* ListUserViewController.swift in Sources */,
 				6589B30C2974B7BB00A9317D /* CentralViewController.swift in Sources */,
 				65CDC50A29CF921D00879017 /* Api.swift in Sources */,

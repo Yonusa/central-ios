@@ -10,17 +10,22 @@ import UIKit
 class NodesViewController: UIViewController {
 
     // MARK: - Vars
+    private let listNodesViewModel = ListNodesViewModel()
+    private let refreshControl = UIRefreshControl()
     
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Actions
     @objc private func logOut() {
+        LoginViewModel.logOut()
         self.navigationController?.popToRootViewController(animated: true)
+    }
+    @objc private func refreshTableView(_ sender: Any) {
+        listNodesViewModel?.refreshView()
     }
     
     // MARK: - LifeCycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -43,6 +48,12 @@ class NodesViewController: UIViewController {
     private func configureValues() {
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.refreshControl = refreshControl
+        // Configure Refresh Control
+        refreshControl.addTarget(self, action: #selector(refreshTableView(_:)), for: .valueChanged)
+        
+        listNodesViewModel?.delegate = self
+        
     }
 
 }
@@ -51,11 +62,13 @@ class NodesViewController: UIViewController {
 
 extension NodesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return listNodesViewModel?.nodeViewModelArray.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? NodeTableViewCell {
+            cell.node = listNodesViewModel?.node(at: indexPath.row)
+            cell.configureUI()
             return cell
         } else {
             fatalError("Unable to dequeue subclassed cell")
@@ -65,6 +78,21 @@ extension NodesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let centralViewController = CentralViewController()
         self.navigationController?.pushViewController(centralViewController, animated: true)
+    }
+    
+    
+}
+
+// MARK: - ListNodesViewModelDelegate
+extension NodesViewController: ListNodesViewModelDelegate {
+    func showNodes() {
+        self.refreshControl.endRefreshing()
+        self.tableView.reloadData()
+    }
+    
+    func showError(errorDescription: String) {
+        self.refreshControl.endRefreshing()
+        Alerts.simpleAlert(controller: self, title: "Error", message: errorDescription)
     }
     
     

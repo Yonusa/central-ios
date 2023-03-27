@@ -11,4 +11,5 @@ struct Constansts {
     static let url = "https://central.payonusa.com"
     
     static let login = "/api/v1/login"
+    static let nodes = "/api/v1/zonas/ObtenerNodos?idNet="
 }

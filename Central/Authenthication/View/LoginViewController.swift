@@ -156,9 +156,8 @@ class LoginViewController: UIViewController {
             return
         }
         
-        spinner.showSpinner(onView: self.view)
-        
         // Attempt to Login
+        spinner.showSpinner(onView: self.view)
         loginViewModel.login(email: email, password: password)
         
     }
@@ -171,7 +170,7 @@ extension LoginViewController: LoginViewModelDelegate {
         self.spinner.removeSpinner()
     }
     
-    func loginError(errorDescription: String) {
+    func showError(errorDescription: String) {
         self.spinner.removeSpinner()
         Alerts.simpleAlert(controller: self, title: "Error", message: errorDescription)
     }
