@@ -11,7 +11,7 @@ import UIKit
 class CentralViewController: UIViewController {
     
     // MARK: - Vars
-    var data = ["","","","","","","",""]
+    var zonas: [ZonaViewModel]!
     // MARK: - Outlets
     private var collectionView: UICollectionView!
     // MARK: - LifeCycle
@@ -20,6 +20,7 @@ class CentralViewController: UIViewController {
         Log.shared.on(file: #file)
         
         configureUI()
+        configureValues()
     }
     
     // MARK: - Helpers
@@ -56,6 +57,10 @@ class CentralViewController: UIViewController {
         self.collectionView.register(zonaViewCell, forCellWithReuseIdentifier: "cell")
         
     }
+    
+    private func configureValues() {
+        
+    }
                                                                 
     // MARK: - Actions
     @objc private func addUser() {
@@ -68,11 +73,13 @@ class CentralViewController: UIViewController {
 // MARK: - CollectionViewDelegate
 extension CentralViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.count
+        return zonas.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? ZonasCollectionViewCell {
+            cell.zona = zonas[indexPath.row]
+            cell.configureUI()
             return cell
         } else {
             fatalError("Unable to dequeue subclassed cell")

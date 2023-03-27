@@ -12,4 +12,5 @@ struct Constansts {
     
     static let login = "/api/v1/login"
     static let nodes = "/api/v1/zonas/ObtenerNodos?idNet="
+    static let zones = "/api/v1/zonas/ObtenerZonas?idNet="
 }

@@ -11,6 +11,7 @@ class NodesViewController: UIViewController {
 
     // MARK: - Vars
     private let listNodesViewModel = ListNodesViewModel()
+    private let listZonesViewModel = ListZonasViewModel()
     private let refreshControl = UIRefreshControl()
     
     // MARK: - Outlets
@@ -77,6 +78,9 @@ extension NodesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let centralViewController = CentralViewController()
+        guard let nodeViewModel = listNodesViewModel?.node(at: indexPath.row) else { return }
+        let zonas = listZonesViewModel?.zonasInNode(idNodo: nodeViewModel.idNodo)
+        centralViewController.zonas = zonas
         self.navigationController?.pushViewController(centralViewController, animated: true)
     }
     
@@ -94,6 +98,5 @@ extension NodesViewController: ListNodesViewModelDelegate {
         self.refreshControl.endRefreshing()
         Alerts.simpleAlert(controller: self, title: "Error", message: errorDescription)
     }
-    
-    
+
 }
