@@ -43,3 +43,25 @@ struct EncodeAuthenthication: Encodable {
     }
 
 }
+
+// MARK: - CloseSession
+struct CloseSession: Codable {
+    let code: Int
+    let message: String
+}
+
+struct EncodeCloseSession: Encodable {
+    
+    static func createResource(idUser: String) -> Resource<CloseSession>? {
+        guard let url = URL(string: Constansts.url + Constansts.logout + idUser) else { return nil }
+        
+        var resource = Resource<CloseSession>(url: url)
+        resource.httpMethod = .post
+        
+//        guard let data = try? JSONEncoder().encode(idUser) else { return nil }
+//        resource.body = data
+        
+        return resource
+    }
+    
+}

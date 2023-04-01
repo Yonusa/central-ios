@@ -11,7 +11,12 @@ import UIKit
 class CentralViewController: UIViewController {
     
     // MARK: - Vars
-    var zonas: [ZonaViewModel]!
+    var idNode: String = ""
+    private let spinner = Spinner()
+    private let refreshControl = UIRefreshControl()
+    private let listZonesViewModel = ListZonasViewModel()
+    private let updateZonasViewModel = UpdateZonaViewModel()
+    private var zones: [ZonaViewModel] = []
     // MARK: - Outlets
     private var collectionView: UICollectionView!
     // MARK: - LifeCycle
@@ -59,13 +64,23 @@ class CentralViewController: UIViewController {
     }
     
     private func configureValues() {
-        
+        collectionView.refreshControl = refreshControl
+        // Configure Refresh Control
+        refreshControl.addTarget(self, action: #selector(refreshCollectionView(_:)), for: .valueChanged)
+        listZonesViewModel?.delegate = self
+        updateZonasViewModel.delegate = self
     }
                                                                 
     // MARK: - Actions
     @objc private func addUser() {
         let addUserView = ListUserViewController(nibName: "ListUserViewController", bundle: nil)
+        guard let idUser = listZonesViewModel?.idUser else { return }
+        addUserView.idUser = String(idUser)
         self.navigationController?.pushViewController(addUserView, animated: true)
+    }
+    
+    @objc private func refreshCollectionView(_ sender: Any) {
+        listZonesViewModel?.refreshView()
     }
     
 }
@@ -73,12 +88,14 @@ class CentralViewController: UIViewController {
 // MARK: - CollectionViewDelegate
 extension CentralViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return zonas.count
+        return zones.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? ZonasCollectionViewCell {
-            cell.zona = zonas[indexPath.row]
+            cell.idUser = listZonesViewModel?.idUser
+            cell.updateZonaViewModel = updateZonasViewModel
+            cell.zona = zones[indexPath.row]
             cell.configureUI()
             return cell
         } else {
@@ -103,4 +120,27 @@ extension CentralViewController: UICollectionViewDelegateFlowLayout {
 
         return CGSize(width: collectionViewSizeWidth/columnsItems, height: collectionViewSizeHeight/rowItems)
     }
+}
+
+// MARK: - ListZonasViewModelDelegate
+extension CentralViewController: ListZonasViewModelDelegate {
+    func showZones() {
+        self.refreshControl.endRefreshing()
+        self.zones = listZonesViewModel?.zonasInNode(idNodo: idNode) ?? []
+        self.collectionView.reloadData()
+    }
+    
+    func showError(errorDescription: String) {
+        self.refreshControl.endRefreshing()
+        Alerts.simpleAlert(controller: self, title: "Error", message: errorDescription)
+    }
+    
+}
+
+// MARK: - UpdateZonasViewModelDelegate
+extension CentralViewController: UpdateZonaViewModelDelegate {
+    func updateZonesSuccess() {
+        listZonesViewModel?.refreshView()
+    }
+    
 }

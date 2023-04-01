@@ -11,19 +11,22 @@ class ListUserTableViewCell: UITableViewCell {
     
     // MARK: - Outlets
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var labelUser: UILabel!
+    @IBOutlet weak var labelLastConnection: UILabel!
     
+    var userOfZone: UserOfZoneViewModel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         stackView.layer.cornerRadius = 20
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+        
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func configureUI() {
+        labelUser.text = userOfZone.name
+        labelLastConnection.text = userOfZone.fecha + "  " + userOfZone.hora
     }
     
 }

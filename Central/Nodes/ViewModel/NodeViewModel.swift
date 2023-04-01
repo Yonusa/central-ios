@@ -40,6 +40,7 @@ protocol ListNodesViewModelDelegate {
 
 // MARK: - ListNodesViewModel
 class ListNodesViewModel {
+    let idUser: String
     let idNet: String
     var nodeViewModelArray: [NodeViewModel] = []
     
@@ -47,6 +48,7 @@ class ListNodesViewModel {
     init?() {
         guard let userData = LoginViewModel.getUserData() else { return nil }
         guard let idNet = userData.idNet else { return nil }
+        self.idUser = String(userData.idUser)
         self.idNet = idNet
         self.requestNodes()
     }

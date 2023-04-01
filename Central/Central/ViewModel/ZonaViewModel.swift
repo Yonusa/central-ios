@@ -7,9 +7,18 @@
 
 import Foundation
 
+// MARK: - UpdateZonaVieModelDelegate
+protocol UpdateZonaViewModelDelegate {
+    func updateZonesSuccess()
+    func showError(errorDescription: String)
+}
+
 // MARK: - NodeViewModel
 class ZonaViewModel {
     let zona: Zona
+    
+    // For Update Zone Only
+    var idUser: Int = 0
     
     init(zona: Zona) {
         self.zona = zona
@@ -44,6 +53,49 @@ class ZonaViewModel {
     }
 }
 
+// MARK: - UpdateZone
+class UpdateZonaViewModel {
+    var delegate: UpdateZonaViewModelDelegate?
+    
+    func updateZone(idUser: Int, viewModel: ZonaViewModel, ubicacion: String? = nil, nombre: String? = nil, estado: String? = nil) {
+        var zona = viewModel.zona
+        
+        if let ubicacion = ubicacion {
+            zona.ubicacion = ubicacion
+        }
+        if let nombre = nombre {
+            zona.nombre = nombre
+        }
+        if let estado = estado {
+            zona.estado = estado
+        }
+        
+        let viewModel = ZonaViewModel(zona: zona)
+        viewModel.idUser = idUser
+        requestUpdate(viewModel: viewModel)
+    }
+    
+    private func requestUpdate(viewModel: ZonaViewModel) {
+        guard let resource = EncodeUpdateZone.createResource(viewModel: viewModel) else { return }
+        
+        Api.fetch(resource: resource) { result in
+            switch result {
+            case .success(let model):
+                if model.code == 0 {
+                    self.delegate?.updateZonesSuccess()
+                } else {
+                    self.delegate?.showError(errorDescription: model.message)
+                }
+                
+            case .failure(let error):
+                self.delegate?.showError(errorDescription: error.localizedDescription)
+            }
+        }
+        
+    }
+    
+}
+
 // MARK: - ListZonasViewModelDelegate
 protocol ListZonasViewModelDelegate {
     func showZones()
@@ -53,6 +105,7 @@ protocol ListZonasViewModelDelegate {
 // MARK: - ListNodesViewModel
 class ListZonasViewModel {
     let idNet: String
+    let idUser: Int
     var zoneViewModelArray: [ZonaViewModel] = []
     
     var delegate: ListZonasViewModelDelegate?
@@ -61,6 +114,7 @@ class ListZonasViewModel {
         guard let userData = LoginViewModel.getUserData() else { return nil }
         guard let idNet = userData.idNet else { return nil }
         self.idNet = idNet
+        self.idUser = userData.idUser
         self.requestZones()
     }
     
@@ -71,6 +125,7 @@ class ListZonasViewModel {
             switch result {
             case .success(let model):
                 self.zoneViewModelArray = model.zona.map(ZonaViewModel.init)
+                self.delegate?.showZones()
             case .failure(let error):
                 self.delegate?.showError(errorDescription: error.localizedDescription)
             }

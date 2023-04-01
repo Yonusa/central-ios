@@ -104,11 +104,3 @@ class LoginViewModel {
     }
     
 }
-
-extension LoginViewModel {
-    static func logOut() {
-        if let bundleID = Bundle.main.bundleIdentifier {
-            UserDefaults.standard.removePersistentDomain(forName: bundleID)
-        }
-    }
-}

@@ -49,6 +49,9 @@
 		65CDC51D29D105F200879017 /* NodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDC51C29D105F200879017 /* NodeViewModel.swift */; };
 		65CDC52229D13E3800879017 /* Zonas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDC52129D13E3800879017 /* Zonas.swift */; };
 		65CDC52429D13E5D00879017 /* ZonaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDC52329D13E5D00879017 /* ZonaViewModel.swift */; };
+		65CDC52929D5316900879017 /* UserOfZones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDC52829D5316900879017 /* UserOfZones.swift */; };
+		65CDC52B29D5317800879017 /* ListUserOfZonesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDC52A29D5317800879017 /* ListUserOfZonesViewModel.swift */; };
+		65CDC52F29D89C0300879017 /* CloseSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDC52E29D89C0300879017 /* CloseSessionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +114,9 @@
 		65CDC51C29D105F200879017 /* NodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeViewModel.swift; sourceTree = "<group>"; };
 		65CDC52129D13E3800879017 /* Zonas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zonas.swift; sourceTree = "<group>"; };
 		65CDC52329D13E5D00879017 /* ZonaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZonaViewModel.swift; sourceTree = "<group>"; };
+		65CDC52829D5316900879017 /* UserOfZones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOfZones.swift; sourceTree = "<group>"; };
+		65CDC52A29D5317800879017 /* ListUserOfZonesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUserOfZonesViewModel.swift; sourceTree = "<group>"; };
+		65CDC52E29D89C0300879017 /* CloseSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseSessionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,12 +243,9 @@
 		65B2D18229C8364500695962 /* Add User */ = {
 			isa = PBXGroup;
 			children = (
-				65B2D18B29C83D8700695962 /* ListUserViewController.swift */,
-				65B2D18C29C83D8700695962 /* ListUserViewController.xib */,
-				65B2D18F29C83E4C00695962 /* ListUserTableViewCell.swift */,
-				65B2D19029C83E4C00695962 /* ListUserTableViewCell.xib */,
-				65B2D19529C83E9300695962 /* AddUserViewController.swift */,
-				65B2D19629C83E9300695962 /* AddUserViewController.xib */,
+				65CDC52729D5311D00879017 /* Model */,
+				65CDC52629D5311800879017 /* View */,
+				65CDC52529D5311000879017 /* ViewModel */,
 			);
 			path = "Add User";
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				65CDC51229CF97A700879017 /* LoginViewModel.swift */,
+				65CDC52E29D89C0300879017 /* CloseSessionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -347,6 +351,35 @@
 			isa = PBXGroup;
 			children = (
 				65CDC52129D13E3800879017 /* Zonas.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		65CDC52529D5311000879017 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				65CDC52A29D5317800879017 /* ListUserOfZonesViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		65CDC52629D5311800879017 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				65B2D18B29C83D8700695962 /* ListUserViewController.swift */,
+				65B2D18C29C83D8700695962 /* ListUserViewController.xib */,
+				65B2D18F29C83E4C00695962 /* ListUserTableViewCell.swift */,
+				65B2D19029C83E4C00695962 /* ListUserTableViewCell.xib */,
+				65B2D19529C83E9300695962 /* AddUserViewController.swift */,
+				65B2D19629C83E9300695962 /* AddUserViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		65CDC52729D5311D00879017 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				65CDC52829D5316900879017 /* UserOfZones.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -530,6 +563,7 @@
 				6539E57E298768F200F36FD0 /* ZonasCollectionViewCell.swift in Sources */,
 				65CDC52429D13E5D00879017 /* ZonaViewModel.swift in Sources */,
 				65B2D19129C83E4C00695962 /* ListUserTableViewCell.swift in Sources */,
+				65CDC52B29D5317800879017 /* ListUserOfZonesViewModel.swift in Sources */,
 				6589B2BE297352F600A9317D /* AppDelegate.swift in Sources */,
 				6589B2C0297352F600A9317D /* SceneDelegate.swift in Sources */,
 				65CDC50329CE734100879017 /* NodesViewController.swift in Sources */,
@@ -545,8 +579,10 @@
 				65CDC51B29D1057100879017 /* Nodes.swift in Sources */,
 				65B2D18D29C83D8700695962 /* ListUserViewController.swift in Sources */,
 				6589B30C2974B7BB00A9317D /* CentralViewController.swift in Sources */,
+				65CDC52F29D89C0300879017 /* CloseSessionViewModel.swift in Sources */,
 				65CDC50A29CF921D00879017 /* Api.swift in Sources */,
 				6589B2FF29735DAA00A9317D /* Extensions.swift in Sources */,
+				65CDC52929D5316900879017 /* UserOfZones.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

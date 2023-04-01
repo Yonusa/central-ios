@@ -78,6 +78,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="labelLastConnection" destination="0QH-Ui-mAb" id="6kY-Jd-t1j"/>
+                <outlet property="labelUser" destination="Nrd-GM-7N4" id="EFp-Ug-XNd"/>
                 <outlet property="stackView" destination="0bG-BH-IYU" id="PUl-FX-9To"/>
             </connections>
             <point key="canvasLocation" x="50.381679389312978" y="36.971830985915496"/>

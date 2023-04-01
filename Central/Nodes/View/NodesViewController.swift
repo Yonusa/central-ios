@@ -11,16 +11,15 @@ class NodesViewController: UIViewController {
 
     // MARK: - Vars
     private let listNodesViewModel = ListNodesViewModel()
-    private let listZonesViewModel = ListZonasViewModel()
     private let refreshControl = UIRefreshControl()
+    private var closeSessionViewModel: CloseSessionViewModel!
     
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Actions
     @objc private func logOut() {
-        LoginViewModel.logOut()
-        self.navigationController?.popToRootViewController(animated: true)
+        closeSessionViewModel.logout()
     }
     @objc private func refreshTableView(_ sender: Any) {
         listNodesViewModel?.refreshView()
@@ -53,7 +52,11 @@ class NodesViewController: UIViewController {
         // Configure Refresh Control
         refreshControl.addTarget(self, action: #selector(refreshTableView(_:)), for: .valueChanged)
         
-        listNodesViewModel?.delegate = self
+        guard let listNodesViewModel = listNodesViewModel else { return }
+        listNodesViewModel.delegate = self
+        
+        closeSessionViewModel = CloseSessionViewModel(idUser: listNodesViewModel.idUser)
+        closeSessionViewModel.delegate = self
         
     }
 
@@ -79,8 +82,7 @@ extension NodesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let centralViewController = CentralViewController()
         guard let nodeViewModel = listNodesViewModel?.node(at: indexPath.row) else { return }
-        let zonas = listZonesViewModel?.zonasInNode(idNodo: nodeViewModel.idNodo)
-        centralViewController.zonas = zonas
+        centralViewController.idNode = nodeViewModel.idNodo
         self.navigationController?.pushViewController(centralViewController, animated: true)
     }
     
@@ -99,4 +101,11 @@ extension NodesViewController: ListNodesViewModelDelegate {
         Alerts.simpleAlert(controller: self, title: "Error", message: errorDescription)
     }
 
+}
+
+// MARK: - CloseSessionDelegate
+extension NodesViewController: CloseSessionViewModelDelegate {
+    func logoutSuccess() {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
 }

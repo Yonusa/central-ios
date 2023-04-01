@@ -25,12 +25,18 @@ class ZonasCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak private var labelZona: UILabel!
     @IBOutlet weak private var imageSwitch: UIImageView!
     
+    var idUser: Int!
     var zona: ZonaViewModel!
+    var updateZonaViewModel: UpdateZonaViewModel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.cornerRadius = 20.0
         self.backgroundColor = .white
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        imageSwitch.isUserInteractionEnabled = true
+        imageSwitch.addGestureRecognizer(tapGestureRecognizer)
     }
     
     func configureUI() {
@@ -50,6 +56,19 @@ class ZonasCollectionViewCell: UICollectionViewCell {
             return
         }
         
+    }
+    
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        if zona.estado == ZoneState.on.rawValue {
+            updateZonaViewModel.updateZone(idUser: idUser, viewModel: zona, estado: "0")
+            return
+        }
+        if zona.estado == ZoneState.off.rawValue {
+            updateZonaViewModel.updateZone(idUser: idUser, viewModel: zona, estado: "1")
+            return
+        }
+
     }
 
     @IBAction func configControl(_ sender: Any) {
