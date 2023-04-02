@@ -16,5 +16,6 @@ struct Constansts {
     static let zones = "/api/v1/zonas/ObtenerZonas?idNet="
     static let updateZone = "/api/v1/zona/ActualizarZona"
     static let usersOfZone = "/api/v1/usuario/ObtenerUsuarios?idAdministrador="
+    static let addUser = "/api/v1/usuario/RegistrarUsuario"
 
 }

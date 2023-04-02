@@ -52,6 +52,8 @@
 		65CDC52929D5316900879017 /* UserOfZones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDC52829D5316900879017 /* UserOfZones.swift */; };
 		65CDC52B29D5317800879017 /* ListUserOfZonesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDC52A29D5317800879017 /* ListUserOfZonesViewModel.swift */; };
 		65CDC52F29D89C0300879017 /* CloseSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDC52E29D89C0300879017 /* CloseSessionViewModel.swift */; };
+		65CDC53129D8A9F000879017 /* AddUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDC53029D8A9F000879017 /* AddUser.swift */; };
+		65CDC53329D8AA0700879017 /* AddUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDC53229D8AA0700879017 /* AddUserViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +119,8 @@
 		65CDC52829D5316900879017 /* UserOfZones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOfZones.swift; sourceTree = "<group>"; };
 		65CDC52A29D5317800879017 /* ListUserOfZonesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUserOfZonesViewModel.swift; sourceTree = "<group>"; };
 		65CDC52E29D89C0300879017 /* CloseSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseSessionViewModel.swift; sourceTree = "<group>"; };
+		65CDC53029D8A9F000879017 /* AddUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUser.swift; sourceTree = "<group>"; };
+		65CDC53229D8AA0700879017 /* AddUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -359,6 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				65CDC52A29D5317800879017 /* ListUserOfZonesViewModel.swift */,
+				65CDC53229D8AA0700879017 /* AddUserViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -380,6 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				65CDC52829D5316900879017 /* UserOfZones.swift */,
+				65CDC53029D8A9F000879017 /* AddUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -558,6 +564,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6589B2EF29735AF100A9317D /* LoginViewController.swift in Sources */,
+				65CDC53329D8AA0700879017 /* AddUserViewModel.swift in Sources */,
 				65CDC51529CF9CAB00879017 /* Constants.swift in Sources */,
 				6589B2C2297352F600A9317D /* ViewController.swift in Sources */,
 				6539E57E298768F200F36FD0 /* ZonasCollectionViewCell.swift in Sources */,
@@ -569,6 +576,7 @@
 				65CDC50329CE734100879017 /* NodesViewController.swift in Sources */,
 				65CDC51129CF979B00879017 /* Authenthication.swift in Sources */,
 				65CDC51329CF97A700879017 /* LoginViewModel.swift in Sources */,
+				65CDC53129D8A9F000879017 /* AddUser.swift in Sources */,
 				6589B2FD29735C8F00A9317D /* Alerts.swift in Sources */,
 				65B2D19729C83E9300695962 /* AddUserViewController.swift in Sources */,
 				65CDC51D29D105F200879017 /* NodeViewModel.swift in Sources */,
