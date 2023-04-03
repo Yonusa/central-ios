@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import CoreLocation
+import MapKit
 
 enum ZoneState: String {
     case on = "ON"
@@ -28,6 +30,7 @@ class ZonasCollectionViewCell: UICollectionViewCell {
     var idUser: Int!
     var zona: ZonaViewModel!
     var updateZonaViewModel: UpdateZonaViewModel!
+    var controllerView: UIViewController!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -72,10 +75,51 @@ class ZonasCollectionViewCell: UICollectionViewCell {
     }
 
     @IBAction func configControl(_ sender: Any) {
-        
+        let updateInfoView = UpdateZoneViewController(nibName: "UpdateZoneViewController", bundle: nil)
+        controllerView.navigationController?.present(updateInfoView, animated: true)
     }
     
     @IBAction func zoneLocation(_ sender: Any) {
         
+        if zona.location.isEmpty {
+            Alerts.simpleAlert(controller: controllerView, title: "Atención", message: "La ubicación no ha sido configurada")
+            return
+        }
+        
+        let locationArray = zona.location.components(separatedBy: ",")
+        openMapsApp(latitud: locationArray[0], longitud: locationArray[1])
+        
     }
+    
+    private func openMapsApp(latitud: String, longitud: String){
+        
+        guard let lati = Double(latitud),
+              let long = Double(longitud) else { return }
+        
+        let latitude: CLLocationDegrees = lati
+        let longitude: CLLocationDegrees = long
+        
+        let regionDistance: CLLocationDistance = 1000
+        let coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+        let options = [MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center), MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)]
+        let placeMark = MKPlacemark(coordinate: coordinates)
+        let mapItem = MKMapItem(placemark: placeMark)
+        mapItem.name = zona.name
+        
+        var mapItems: [MKMapItem] = [mapItem]
+        for item in mapItems {
+            if let name = item.name,
+                let location = item.placemark.location {
+                debugPrint("\(name): \(location.coordinate.latitude),\(location.coordinate.longitude)")
+                let place_Mark = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude))
+                let map_Item = MKMapItem(placemark: place_Mark)
+                map_Item.name = name
+                mapItems.append(map_Item)
+            }
+        }
+        MKMapItem.openMaps(with: mapItems, launchOptions: options)
+
+    }
+        
 }

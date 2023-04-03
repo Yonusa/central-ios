@@ -54,6 +54,9 @@
 		65CDC52F29D89C0300879017 /* CloseSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDC52E29D89C0300879017 /* CloseSessionViewModel.swift */; };
 		65CDC53129D8A9F000879017 /* AddUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDC53029D8A9F000879017 /* AddUser.swift */; };
 		65CDC53329D8AA0700879017 /* AddUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDC53229D8AA0700879017 /* AddUserViewModel.swift */; };
+		65CDC53929DA4CB100879017 /* UpdateZoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDC53729DA4CB100879017 /* UpdateZoneViewController.swift */; };
+		65CDC53A29DA4CB100879017 /* UpdateZoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65CDC53829DA4CB100879017 /* UpdateZoneViewController.xib */; };
+		65CDC53D29DA587200879017 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 65CDC53C29DA587200879017 /* FirebaseMessaging */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +124,8 @@
 		65CDC52E29D89C0300879017 /* CloseSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseSessionViewModel.swift; sourceTree = "<group>"; };
 		65CDC53029D8A9F000879017 /* AddUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUser.swift; sourceTree = "<group>"; };
 		65CDC53229D8AA0700879017 /* AddUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserViewModel.swift; sourceTree = "<group>"; };
+		65CDC53729DA4CB100879017 /* UpdateZoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateZoneViewController.swift; sourceTree = "<group>"; };
+		65CDC53829DA4CB100879017 /* UpdateZoneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpdateZoneViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65CDC53D29DA587200879017 /* FirebaseMessaging in Frameworks */,
 				6589B30529736B9E00A9317D /* Lottie in Frameworks */,
 				6589B2F629735C1D00A9317D /* FirebaseCrashlytics in Frameworks */,
 				6589B2F429735C1D00A9317D /* FirebaseAnalyticsSwift in Frameworks */,
@@ -160,6 +166,7 @@
 				6589B2D3297352F700A9317D /* CentralTests */,
 				6589B2DD297352F700A9317D /* CentralUITests */,
 				6589B2BB297352F600A9317D /* Products */,
+				65CDC53B29DA587200879017 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -236,6 +243,7 @@
 		6589B30829737D0000A9317D /* Central */ = {
 			isa = PBXGroup;
 			children = (
+				65CDC53529DA4C7100879017 /* UpdateZone */,
 				65CDC52029D13E1000879017 /* Model */,
 				65CDC51F29D13E0B00879017 /* View */,
 				65CDC51E29D13E0100879017 /* ViewModel */,
@@ -390,6 +398,30 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		65CDC53529DA4C7100879017 /* UpdateZone */ = {
+			isa = PBXGroup;
+			children = (
+				65CDC53629DA4C8000879017 /* View */,
+			);
+			path = UpdateZone;
+			sourceTree = "<group>";
+		};
+		65CDC53629DA4C8000879017 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				65CDC53729DA4CB100879017 /* UpdateZoneViewController.swift */,
+				65CDC53829DA4CB100879017 /* UpdateZoneViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		65CDC53B29DA587200879017 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -413,6 +445,7 @@
 				6589B2F529735C1D00A9317D /* FirebaseCrashlytics */,
 				6589B2F729735C1D00A9317D /* FirebasePerformance */,
 				6589B30429736B9E00A9317D /* Lottie */,
+				65CDC53C29DA587200879017 /* FirebaseMessaging */,
 			);
 			productName = Central;
 			productReference = 6589B2BA297352F600A9317D /* Central.app */;
@@ -517,6 +550,7 @@
 				65B2D18E29C83D8700695962 /* ListUserViewController.xib in Resources */,
 				6539E57F298768F200F36FD0 /* ZonasCollectionViewCell.xib in Resources */,
 				6589B2C5297352F600A9317D /* Main.storyboard in Resources */,
+				65CDC53A29DA4CB100879017 /* UpdateZoneViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,6 +620,7 @@
 				65CDC50729CE76D000879017 /* NodeTableViewCell.swift in Sources */,
 				65CDC51B29D1057100879017 /* Nodes.swift in Sources */,
 				65B2D18D29C83D8700695962 /* ListUserViewController.swift in Sources */,
+				65CDC53929DA4CB100879017 /* UpdateZoneViewController.swift in Sources */,
 				6589B30C2974B7BB00A9317D /* CentralViewController.swift in Sources */,
 				65CDC52F29D89C0300879017 /* CloseSessionViewModel.swift in Sources */,
 				65CDC50A29CF921D00879017 /* Api.swift in Sources */,
@@ -982,6 +1017,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6589B30329736B9E00A9317D /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		65CDC53C29DA587200879017 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6589B2F029735C1D00A9317D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

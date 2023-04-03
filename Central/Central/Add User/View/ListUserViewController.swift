@@ -19,6 +19,7 @@ class ListUserViewController: UIViewController {
     // MARK: - Actions
     @objc func addUser() {
         let addUserView = AddUserViewController(nibName: "AddUserViewController", bundle: nil)
+        addUserView.listUsersOfZoneViewModel = listUsersOfZoneViewModel
         self.navigationController?.present(addUserView, animated: true)
     }
     // MARK: - LifeCycle

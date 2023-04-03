@@ -10,15 +10,19 @@ import UIKit
 enum PickerData: String, CaseIterable {
     case admon = "Administrador"
     case invited = "Invited"
+    case monitorist = "Monitorista"
     
-    static let array = [admon, invited]
+    // If you add another case, don't forget to add it into the array
+    static let array = [admon, invited, monitorist]
     
     var value: Int {
         switch self {
         case .admon:
-            return 0
-        case .invited:
             return 1
+        case .invited:
+            return 2
+        case .monitorist:
+            return 3
         }
     }
 }
@@ -37,6 +41,7 @@ class AddUserViewController: UIViewController {
     let thePicker = UIPickerView()
     
     let addUserViewModel = AddUserViewModel()
+    var listUsersOfZoneViewModel: ListUserOfZonesViewModel!
     // MARK: - Actions
     
     @IBAction func addUser(_ sender: Any) {
@@ -109,6 +114,7 @@ class AddUserViewController: UIViewController {
 extension AddUserViewController: AddUserViewModelDelegate {
     func userAddSuccess() {
         self.spinner.removeSpinner()
+        self.listUsersOfZoneViewModel.refreshUsers()
         self.dismiss(animated: true)
     }
     

@@ -95,6 +95,7 @@ extension CentralViewController: UICollectionViewDelegate, UICollectionViewDataS
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? ZonasCollectionViewCell {
             cell.idUser = listZonesViewModel?.idUser
             cell.updateZonaViewModel = updateZonasViewModel
+            cell.controllerView = self
             cell.zona = zones[indexPath.row]
             cell.configureUI()
             return cell

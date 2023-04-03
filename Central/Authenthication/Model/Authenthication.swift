@@ -23,11 +23,17 @@ struct Authenthication: Codable {
 struct EncodeAuthenthication: Encodable {
     let email: String
     let password: String
-    let token: String = ""
+    let token: String
     
     init(viewModel: LoginViewModel) {
         self.email = viewModel.email
         self.password = viewModel.password
+        
+        guard let token = UserDefaults.standard.string(forKey: Token.fcmToken.rawValue) else {
+            self.token = ""
+            return
+        }
+        self.token = token
     }
     
     static func createResource(viewModel: LoginViewModel) -> Resource<Authenthication>? {

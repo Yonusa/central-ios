@@ -17,5 +17,9 @@ struct Constansts {
     static let updateZone = "/api/v1/zona/ActualizarZona"
     static let usersOfZone = "/api/v1/usuario/ObtenerUsuarios?idAdministrador="
     static let addUser = "/api/v1/usuario/RegistrarUsuario"
+    
+    // Location urls
+    static let googleMaps = ""
+    static let appleMaps = "https://www.google.com/maps/dir/?api=1&travelmode=driving&layer=traffic&destination="
 
 }

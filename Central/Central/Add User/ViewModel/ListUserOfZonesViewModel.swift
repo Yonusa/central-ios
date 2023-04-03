@@ -51,6 +51,10 @@ class ListUserOfZonesViewModel {
         getUsers()
     }
     
+    func refreshUsers() {
+        getUsers()
+    }
+    
     private func getUsers() {
         guard let resource = EncodeUserOfZones.createResource(viewModel: self) else { return }
         
