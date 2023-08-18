@@ -72,9 +72,9 @@ class UpdateZoneViewController: UIViewController {
     @IBAction func updateInfo(_ sender: Any) {
         guard let name = textFieldName.text, !name.isEmpty else { return }
         
-        if let coordinateX = textFieldLatitude.text , !coordinateX.isEmpty,
-           let coordinateY = textFieldLongitude.text, !coordinateY.isEmpty {
-            updateZonaViewModel.updateZone(idUser: idUser, viewModel: zonaViewModel, coordinateX: coordinateX, coordinateY: coordinateX, nombre: name)
+        if let coordinateX = textFieldLatitude.placeholder , !coordinateX.isEmpty,
+           let coordinateY = textFieldLongitude.placeholder, !coordinateY.isEmpty {
+            updateZonaViewModel.updateZone(idUser: idUser, viewModel: zonaViewModel, coordinateX: coordinateX, coordinateY: coordinateY, nombre: name)
         } else {
             updateZonaViewModel.updateZone(idUser: idUser, viewModel: zonaViewModel, nombre: name)
         }

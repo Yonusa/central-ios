@@ -71,6 +71,12 @@ class UpdateZonaViewModel {
         }
         if let estado = estado {
             zona.estado = estado
+        } else {
+            if zona.estado == ZoneState.on.rawValue {
+                zona.estado = "1"
+            } else {
+                zona.estado = "0"
+            }
         }
         
         let viewModel = ZonaViewModel(zona: zona)
