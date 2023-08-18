@@ -57,11 +57,14 @@ class ZonaViewModel {
 class UpdateZonaViewModel {
     var delegate: UpdateZonaViewModelDelegate?
     
-    func updateZone(idUser: Int, viewModel: ZonaViewModel, ubicacion: String? = nil, nombre: String? = nil, estado: String? = nil) {
+    func updateZone(idUser: Int, viewModel: ZonaViewModel, coordinateX: String? = nil, coordinateY: String? = nil, nombre: String? = nil, estado: String? = nil) {
         var zona = viewModel.zona
         
-        if let ubicacion = ubicacion {
-            zona.ubicacion = ubicacion
+        if let coordinateX = coordinateX {
+            zona.coordinateX = coordinateX
+        }
+        if let coordinateY = coordinateY {
+            zona.coordinateY = coordinateY
         }
         if let nombre = nombre {
             zona.nombre = nombre

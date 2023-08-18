@@ -76,18 +76,20 @@ class ZonasCollectionViewCell: UICollectionViewCell {
 
     @IBAction func configControl(_ sender: Any) {
         let updateInfoView = UpdateZoneViewController(nibName: "UpdateZoneViewController", bundle: nil)
+        updateInfoView.idUser = idUser
+        updateInfoView.zonaViewModel = zona
+        updateInfoView.updateZonaViewModel = updateZonaViewModel
         controllerView.navigationController?.present(updateInfoView, animated: true)
     }
     
     @IBAction func zoneLocation(_ sender: Any) {
         
-        if zona.location.isEmpty {
+        if zona.coordinateX.isEmpty || zona.coordinateY.isEmpty {
             Alerts.simpleAlert(controller: controllerView, title: "Atención", message: "La ubicación no ha sido configurada")
             return
         }
         
-        let locationArray = zona.location.components(separatedBy: ",")
-        openMapsApp(latitud: locationArray[0], longitud: locationArray[1])
+        openMapsApp(latitud: zona.coordinateX, longitud: zona.coordinateY)
         
     }
     

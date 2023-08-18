@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6539E57E298768F200F36FD0 /* ZonasCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6539E57C298768F200F36FD0 /* ZonasCollectionViewCell.swift */; };
 		6539E57F298768F200F36FD0 /* ZonasCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6539E57D298768F200F36FD0 /* ZonasCollectionViewCell.xib */; };
+		653D47402A720205000F53B2 /* alarma.caf in Resources */ = {isa = PBXBuildFile; fileRef = 653D473F2A7201F6000F53B2 /* alarma.caf */; };
 		6589B2BE297352F600A9317D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589B2BD297352F600A9317D /* AppDelegate.swift */; };
 		6589B2C0297352F600A9317D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589B2BF297352F600A9317D /* SceneDelegate.swift */; };
 		6589B2C2297352F600A9317D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589B2C1297352F600A9317D /* ViewController.swift */; };
@@ -79,6 +80,7 @@
 /* Begin PBXFileReference section */
 		6539E57C298768F200F36FD0 /* ZonasCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZonasCollectionViewCell.swift; sourceTree = "<group>"; };
 		6539E57D298768F200F36FD0 /* ZonasCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZonasCollectionViewCell.xib; sourceTree = "<group>"; };
+		653D473F2A7201F6000F53B2 /* alarma.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = alarma.caf; sourceTree = "<group>"; };
 		6589B2BA297352F600A9317D /* Central.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Central.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6589B2BD297352F600A9317D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6589B2BF297352F600A9317D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -159,6 +161,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		653D473E2A7201E0000F53B2 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				653D473F2A7201F6000F53B2 /* alarma.caf */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		6589B2B1297352F600A9317D = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +241,7 @@
 		6589B2F929735C4F00A9317D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				653D473E2A7201E0000F53B2 /* Sounds */,
 				65CDC50C29CF923A00879017 /* Network */,
 				65CDC50B29CF922900879017 /* Crashlytics */,
 				6589B2FE29735DAA00A9317D /* Extensions.swift */,
@@ -543,6 +554,7 @@
 				6589B3022973605800A9317D /* GoogleService-Info.plist in Resources */,
 				65CDC50429CE734100879017 /* NodesViewController.xib in Resources */,
 				65B2D19829C83E9300695962 /* AddUserViewController.xib in Resources */,
+				653D47402A720205000F53B2 /* alarma.caf in Resources */,
 				6589B307297372ED00A9317D /* loginAnimation.json in Resources */,
 				65CDC50829CE76D000879017 /* NodeTableViewCell.xib in Resources */,
 				6589B2C7297352F700A9317D /* Assets.xcassets in Resources */,
@@ -802,7 +814,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Central/Central.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = BJM4NSX373;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -812,12 +824,15 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yonusa.central;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -833,7 +848,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Central/Central.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = BJM4NSX373;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Central/Info.plist;
@@ -842,12 +857,15 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yonusa.central;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

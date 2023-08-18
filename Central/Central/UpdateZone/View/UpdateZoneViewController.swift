@@ -6,26 +6,36 @@
 //
 
 import UIKit
+import CoreLocation
 
 class UpdateZoneViewController: UIViewController {
     
     
     // MARK: - Vars
+    var idUser: Int!
+    var zonaViewModel: ZonaViewModel!
+    var updateZonaViewModel: UpdateZonaViewModel!
+    var authStatus = CLAuthorizationStatus.notDetermined
+    var locationManager: CLLocationManager!
     
     // MARK: - Outlets
     @IBOutlet weak var textFieldName: UITextField!
-    @IBOutlet weak var textFieldLocation: UITextField!
+    @IBOutlet weak var textFieldLatitude: UITextField!
+    @IBOutlet weak var textFieldLongitude: UITextField!
     @IBOutlet weak var buttonUpdateInfo: UIButton!
+    @IBOutlet weak var buttonGetLocation: UIButton!
     // MARK: - LifeCycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        configureValues()
     }
     
     private func configureUI() {
         textFieldConfig(textFieldName, placeholder: "Nombre", keyboardType: .default)
-        textFieldConfig(textFieldLocation, placeholder: "Ubicación", keyboardType: .default)
+        textFieldConfig(textFieldLatitude, placeholder: "Latitud", keyboardType: .default)
+        textFieldConfig(textFieldLongitude, placeholder: "Longitud", keyboardType: .default)
         
         buttonUpdateInfo.backgroundColor = .init(named: "Primary")
         buttonUpdateInfo.layer.cornerRadius = 20.0
@@ -50,12 +60,81 @@ class UpdateZoneViewController: UIViewController {
     }
     
     private func configureValues() {
-        
+        textFieldName.text = zonaViewModel.name
+        textFieldLatitude.placeholder = zonaViewModel.coordinateX
+        textFieldLongitude.placeholder = zonaViewModel.coordinateY
+        textFieldLatitude.isUserInteractionEnabled = false
+        textFieldLongitude.isUserInteractionEnabled = false
+        configLocationManager()
     }
     
     // MARK: - Actions
     @IBAction func updateInfo(_ sender: Any) {
+        guard let name = textFieldName.text, !name.isEmpty else { return }
+        
+        if let coordinateX = textFieldLatitude.text , !coordinateX.isEmpty,
+           let coordinateY = textFieldLongitude.text, !coordinateY.isEmpty {
+            updateZonaViewModel.updateZone(idUser: idUser, viewModel: zonaViewModel, coordinateX: coordinateX, coordinateY: coordinateX, nombre: name)
+        } else {
+            updateZonaViewModel.updateZone(idUser: idUser, viewModel: zonaViewModel, nombre: name)
+        }
+        
+        self.dismiss(animated: true)
     }
     
+    @IBAction func getLocation(_ sender: Any) {
+        requestLocation()
+    }
+    
+}
 
+// MARK: - GetLocation
+extension UpdateZoneViewController: CLLocationManagerDelegate {
+    
+    func configLocationManager() {
+        // Create a CLLocationManager and assign a delegate
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        
+        switch authStatus {
+        case .notDetermined, .restricted, .denied:
+            debugPrint("LOCATION PERMISSION REQUIRED")
+        case .authorizedAlways, .authorizedWhenInUse:
+            debugPrint("LOCATION GRANTED")
+        @unknown default:
+            break
+        }
+    }
+    
+    func requestLocation() {
+        
+        switch authStatus {
+        case .notDetermined, .restricted, .denied:
+            locationManager.requestWhenInUseAuthorization()
+        case .authorizedAlways, .authorizedWhenInUse:
+            locationManager.requestLocation()
+        @unknown default:
+            Alerts.settingsAlert(controller: self, title: "Atención", message: "Es necesario otorgue los permisos de ubicación")
+        }
+        
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        authStatus = manager.authorizationStatus
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        if let location = locations.first {
+            let latitude = location.coordinate.latitude
+            let longitude = location.coordinate.longitude
+            textFieldLatitude.placeholder = latitude.description
+            textFieldLongitude.placeholder = longitude.description
+            debugPrint("Lat:\(latitude),Lon:\(longitude)")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        Alerts.simpleAlert(controller: self, title: "Error", message: error.localizedDescription)
+    }
 }

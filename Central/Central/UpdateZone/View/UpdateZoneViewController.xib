@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,8 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UpdateZoneViewController" customModule="Central" customModuleProvider="target">
             <connections>
+                <outlet property="buttonGetLocation" destination="958-ee-Qd0" id="Rzk-mg-KjD"/>
                 <outlet property="buttonUpdateInfo" destination="bub-aV-XR6" id="9o4-ZH-Mbm"/>
-                <outlet property="textFieldLocation" destination="XWr-jn-3NK" id="n1I-fb-BA4"/>
+                <outlet property="textFieldLatitude" destination="XWr-jn-3NK" id="n1I-fb-BA4"/>
+                <outlet property="textFieldLongitude" destination="dmq-tX-Q8k" id="wHP-p0-Dfj"/>
                 <outlet property="textFieldName" destination="WkD-H5-ceC" id="Bh9-ru-Wry"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -25,7 +29,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ePX-6d-AXz">
-                    <rect key="frame" x="30" y="89.000000000000014" width="333" height="200.33333333333337"/>
+                    <rect key="frame" x="30" y="89" width="333" height="300.33333333333331"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Modificar información" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlK-5z-R1y">
                             <rect key="frame" x="0.0" y="0.0" width="333" height="20.333333333333332"/>
@@ -46,8 +50,25 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bub-aV-XR6">
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dmq-tX-Q8k">
                             <rect key="frame" x="0.0" y="160.33333333333334" width="333" height="40"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="958-ee-Qd0">
+                            <rect key="frame" x="0.0" y="220.33333333333331" width="333" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="zqw-c0-HS2"/>
+                            </constraints>
+                            <color key="tintColor" name="Third"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="location.circle.fill" catalog="system" imagePlacement="trailing" title="Actualizar ubicación   "/>
+                            <connections>
+                                <action selector="getLocation:" destination="-1" eventType="touchUpInside" id="m1e-v3-AgV"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bub-aV-XR6">
+                            <rect key="frame" x="0.0" y="260.33333333333331" width="333" height="40"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Button"/>
@@ -57,6 +78,7 @@
                         </button>
                     </subviews>
                     <constraints>
+                        <constraint firstItem="dmq-tX-Q8k" firstAttribute="height" secondItem="WkD-H5-ceC" secondAttribute="height" id="A5Z-3e-Wzq"/>
                         <constraint firstItem="bub-aV-XR6" firstAttribute="height" secondItem="WkD-H5-ceC" secondAttribute="height" id="Hdv-j1-2sY"/>
                         <constraint firstItem="XWr-jn-3NK" firstAttribute="height" secondItem="WkD-H5-ceC" secondAttribute="height" id="NaY-Kg-fJv"/>
                     </constraints>
@@ -78,6 +100,10 @@
     </objects>
     <resources>
         <image name="BackgroundLogin" width="375" height="812"/>
+        <image name="location.circle.fill" catalog="system" width="128" height="123"/>
+        <namedColor name="Third">
+            <color red="0.58039215686274515" green="0.90588235294117647" blue="0.011764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

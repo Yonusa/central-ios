@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 
@@ -24,10 +25,12 @@ struct EncodeAuthenthication: Encodable {
     let email: String
     let password: String
     let token: String
+    let dispositivoId: String
     
     init(viewModel: LoginViewModel) {
         self.email = viewModel.email
         self.password = viewModel.password
+        self.dispositivoId = UIDevice.current.identifierForVendor!.uuidString
         
         guard let token = UserDefaults.standard.string(forKey: Token.fcmToken.rawValue) else {
             self.token = ""
@@ -57,15 +60,22 @@ struct CloseSession: Codable {
 }
 
 struct EncodeCloseSession: Encodable {
+    let idUsuario: String
+    let dispositivoId: String
+    
+    init(idUsuario: String) {
+        self.idUsuario = idUsuario
+        self.dispositivoId = UIDevice.current.identifierForVendor!.uuidString
+    }
     
     static func createResource(idUser: String) -> Resource<CloseSession>? {
-        guard let url = URL(string: Constansts.url + Constansts.logout + idUser) else { return nil }
+        guard let url = URL(string: Constansts.url + Constansts.logout) else { return nil }
         
         var resource = Resource<CloseSession>(url: url)
         resource.httpMethod = .post
         
-//        guard let data = try? JSONEncoder().encode(idUser) else { return nil }
-//        resource.body = data
+        guard let data = try? JSONEncoder().encode(EncodeCloseSession(idUsuario: idUser)) else { return nil }
+        resource.body = data
         
         return resource
     }
