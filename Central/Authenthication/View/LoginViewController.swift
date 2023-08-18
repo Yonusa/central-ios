@@ -51,7 +51,9 @@ class LoginViewController: UIViewController {
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
         textField.backgroundColor = .white
-         textField.text = "admin@gmail.com"
+#if DEBUG
+        textField.text = "kgaray@yonusa.com"
+#endif
         return textField
     }()
     
@@ -65,7 +67,9 @@ class LoginViewController: UIViewController {
         textField.layer.borderWidth = 1.0
         textField.isSecureTextEntry = true
         textField.backgroundColor = .white
-         textField.text = "admin"
+#if DEBUG
+        textField.text = "Yonusa24"
+#endif
         return textField
     }()
     
