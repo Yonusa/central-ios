@@ -11,6 +11,7 @@ class NodesViewController: UIViewController {
 
     // MARK: - Vars
     private let listNodesViewModel = ListNodesViewModel()
+    private let listZonesViewModel = ListZonasViewModel()
     private let refreshControl = UIRefreshControl()
     private var closeSessionViewModel: CloseSessionViewModel!
     
@@ -37,6 +38,7 @@ class NodesViewController: UIViewController {
         self.navigationController?.navigationBar.backgroundColor = UIColor(named: "Primary")
         self.navigationItem.title = "Nodos"
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "figure.walk.arrival"), style: .plain, target: self, action: #selector(logOut))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "location.magnifyingglass"), style: .done, target: self, action: #selector(showAllZonesLocations))
         self.navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "Third")
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "Third")
         
@@ -58,6 +60,11 @@ class NodesViewController: UIViewController {
         closeSessionViewModel = CloseSessionViewModel(idUser: listNodesViewModel.idUser)
         closeSessionViewModel.delegate = self
         
+    }
+    
+    @objc private func showAllZonesLocations() {
+        guard let mapItems = listZonesViewModel?.allZonesLocations() else { return }
+        MapsHandler.openMapsApp(mapItems: mapItems)
     }
 
 }

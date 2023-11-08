@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6518F0DE2AFB3EB7003889C2 /* MapsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6518F0DD2AFB3EB7003889C2 /* MapsHandler.swift */; };
 		6539E57E298768F200F36FD0 /* ZonasCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6539E57C298768F200F36FD0 /* ZonasCollectionViewCell.swift */; };
 		6539E57F298768F200F36FD0 /* ZonasCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6539E57D298768F200F36FD0 /* ZonasCollectionViewCell.xib */; };
 		653D47402A720205000F53B2 /* alarma.caf in Resources */ = {isa = PBXBuildFile; fileRef = 653D473F2A7201F6000F53B2 /* alarma.caf */; };
@@ -78,6 +79,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6518F0DD2AFB3EB7003889C2 /* MapsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsHandler.swift; sourceTree = "<group>"; };
 		6539E57C298768F200F36FD0 /* ZonasCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZonasCollectionViewCell.swift; sourceTree = "<group>"; };
 		6539E57D298768F200F36FD0 /* ZonasCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZonasCollectionViewCell.xib; sourceTree = "<group>"; };
 		653D473F2A7201F6000F53B2 /* alarma.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = alarma.caf; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				6589B2FE29735DAA00A9317D /* Extensions.swift */,
 				6589B2FA29735C6300A9317D /* Spinner.swift */,
 				6589B2FC29735C8F00A9317D /* Alerts.swift */,
+				6518F0DD2AFB3EB7003889C2 /* MapsHandler.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -630,6 +633,7 @@
 				6589B2FB29735C6300A9317D /* Spinner.swift in Sources */,
 				6589B30A29737D9400A9317D /* Log.swift in Sources */,
 				65CDC50729CE76D000879017 /* NodeTableViewCell.swift in Sources */,
+				6518F0DE2AFB3EB7003889C2 /* MapsHandler.swift in Sources */,
 				65CDC51B29D1057100879017 /* Nodes.swift in Sources */,
 				65B2D18D29C83D8700695962 /* ListUserViewController.swift in Sources */,
 				65CDC53929DA4CB100879017 /* UpdateZoneViewController.swift in Sources */,

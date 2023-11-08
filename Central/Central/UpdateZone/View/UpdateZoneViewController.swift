@@ -61,8 +61,8 @@ class UpdateZoneViewController: UIViewController {
     
     private func configureValues() {
         textFieldName.text = zonaViewModel.name
-        textFieldLatitude.placeholder = zonaViewModel.coordinateX
-        textFieldLongitude.placeholder = zonaViewModel.coordinateY
+        textFieldLatitude.placeholder = zonaViewModel.coordinateY
+        textFieldLongitude.placeholder = zonaViewModel.coordinateX
         textFieldLatitude.isUserInteractionEnabled = false
         textFieldLongitude.isUserInteractionEnabled = false
         configLocationManager()
@@ -72,8 +72,8 @@ class UpdateZoneViewController: UIViewController {
     @IBAction func updateInfo(_ sender: Any) {
         guard let name = textFieldName.text, !name.isEmpty else { return }
         
-        if let coordinateX = textFieldLatitude.placeholder , !coordinateX.isEmpty,
-           let coordinateY = textFieldLongitude.placeholder, !coordinateY.isEmpty {
+        if let coordinateX = textFieldLongitude.placeholder , !coordinateX.isEmpty,
+           let coordinateY = textFieldLatitude.placeholder, !coordinateY.isEmpty {
             updateZonaViewModel.updateZone(idUser: idUser, viewModel: zonaViewModel, coordinateX: coordinateX, coordinateY: coordinateY, nombre: name)
         } else {
             updateZonaViewModel.updateZone(idUser: idUser, viewModel: zonaViewModel, nombre: name)

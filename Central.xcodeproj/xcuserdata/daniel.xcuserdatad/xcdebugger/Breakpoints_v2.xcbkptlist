@@ -103,16 +103,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4AC484C8-CDE3-4327-9F50-A12104931F6F"
+            uuid = "120EDB43-4626-4E60-ABB1-CEB8397FCCFA"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Central/Central/View/ZonasCollectionViewCell.swift"
+            filePath = "Central/Helpers/MapsHandler.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "openMapsApp(latitud:longitud:)"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "openMapsApp(mapItems:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

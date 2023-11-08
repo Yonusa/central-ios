@@ -150,4 +150,13 @@ class ListZonasViewModel {
         return zoneViewModelArray.filter { $0.idNodo.elementsEqual(idNodo) }
     }
     
+    func allZonesLocations() -> [MapItems] {
+        var mapItems: [MapItems] = []
+        for zone in zoneViewModelArray {
+            let mapItem = MapItems(latitud: zone.coordinateY, longitud: zone.coordinateX, zoneName: zone.name)
+            mapItems.append(mapItem)
+        }
+        return mapItems
+    }
+    
 }
