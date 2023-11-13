@@ -27,6 +27,7 @@ class NodeTableViewCell: UITableViewCell {
     @IBOutlet weak private var imageViewBattery: UIImageView!
     
     var node: NodeViewModel!
+    let defaultMessage: String = "Zona trabajando correctamente"
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -63,7 +64,11 @@ class NodeTableViewCell: UITableViewCell {
             imageViewBattery.image = UIImage(systemName: BatteryImage.full.rawValue)
         }
         // Set Message
-        labelDescription.text = node.mensaje
+        if node.mensaje.isEmpty {
+            labelDescription.text = defaultMessage
+        } else {
+            labelDescription.text = node.mensaje
+        }
         
     }
     
